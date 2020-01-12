@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "workerapp": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
