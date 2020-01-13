@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using StatsBot.CoreInterfaces;
+using StatsBot.EventListener;
 
-namespace workerapp
+namespace StatsBot.NHL.Entrypoint
 {
     public class Program
     {
@@ -18,7 +16,8 @@ namespace workerapp
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddHostedService<Worker>();
+                    services.AddSingleton<IEventProvider, NHLEventProvider>();
+                    services.AddHostedService<EventListenerService>();
                 });
     }
 }

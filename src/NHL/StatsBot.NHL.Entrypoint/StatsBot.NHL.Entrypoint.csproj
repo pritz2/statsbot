@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-NHL.Entrypoint-BF6B294F-A28D-4023-A85C-E667B015B0B5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\StatsBot.EventListener\StatsBot.EventListener.csproj" />
+  </ItemGroup>
+</Project>
