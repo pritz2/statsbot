@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StatsBot.CoreInterfaces;
@@ -24,6 +20,7 @@ namespace StatsBot.Console.Entrypoint
             return Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddSingleton<ILogger, ConsoleLogger>();
                     services.AddSingleton<IEventProvider>((serviceProvider) => new DictionaryEventProvider(consoleProvidedEvents));
                     services.AddHostedService<EventListenerService>();
                     services.AddHostedService<EventConsoleListeningService>((serviceProvider) => new EventConsoleListeningService(consoleProvidedEvents));

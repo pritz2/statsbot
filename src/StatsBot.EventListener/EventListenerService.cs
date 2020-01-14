@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using StatsBot.CoreInterfaces;
 using StatsBot.Metadata;
 
@@ -12,11 +11,11 @@ namespace StatsBot.EventListener
 {
     public class EventListenerService : BackgroundService
     {
-        private readonly ILogger<EventListenerService> logger;
+        private readonly ILogger logger;
 
         private readonly IEventProvider eventProvider;
 
-        public EventListenerService(ILogger<EventListenerService> logger, IEventProvider eventProvider)
+        public EventListenerService(ILogger logger, IEventProvider eventProvider)
         {
             this.logger = logger;
             this.eventProvider = eventProvider;

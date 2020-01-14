@@ -16,6 +16,7 @@ namespace StatsBot.NHL.Entrypoint
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddSingleton<ILogger, ConsoleLogger>();
                     services.AddSingleton<IEventProvider, NHLEventProvider>();
                     services.AddHostedService<EventListenerService>();
                 });

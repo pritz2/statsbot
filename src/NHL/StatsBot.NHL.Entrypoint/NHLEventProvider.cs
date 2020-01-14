@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Microsoft.Extensions.Logging;
 using StatsBot.CoreInterfaces;
 using StatsBot.Metadata;
 
@@ -7,9 +6,9 @@ namespace StatsBot.NHL.Entrypoint
 {
     public class NHLEventProvider : IEventProvider
     {
-        private readonly ILogger<NHLEventProvider> logger;
+        private readonly ILogger logger;
 
-        public NHLEventProvider(ILogger<NHLEventProvider> logger)
+        public NHLEventProvider(ILogger logger)
         {
             this.logger = logger;
         }

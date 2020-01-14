@@ -7,5 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\StatsBot.EventListener\StatsBot.EventListener.csproj" />
+    <ProjectReference Include="..\StatsBot.NHL.ApiClient\StatsBot.NHL.ApiClient.csproj" />
   </ItemGroup>
 </Project>

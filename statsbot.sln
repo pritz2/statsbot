@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{91E5E018-F704-426B-833E-19E5C9DA11BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{A6A47D81-6C04-49F4-9DA7-C2F6EFEA4640}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsBot.EventListener", "src\StatsBot.EventListener\StatsBot.EventListener.csproj", "{92DBD0F8-8000-45F5-BCF5-27C42046C2C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsBot.CoreInterfaces", "src\StatsBot.CoreInterfaces\StatsBot.CoreInterfaces.csproj", "{65CA6B65-B774-4185-9EFA-8377D7CA3028}"
@@ -20,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsBot.Console.Entrypoint", "src\Console\StatsBot.Console.Entrypoint\StatsBot.Console.Entrypoint.csproj", "{74A74F79-5814-4289-8389-1D4D2A4C7458}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsBot.NHL.Events", "src\NHL\StatsBot.NHL.Events\StatsBot.NHL.Events.csproj", "{134285E5-095F-4DCE-B762-5C9D2808D2B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsBot.NHL.ApiClient", "src\NHL\StatsBot.NHL.ApiClient\StatsBot.NHL.ApiClient.csproj", "{7B25F7CA-4F68-4B6C-AE9F-D3DD7E1EA304}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatsBot.NHL.ApiClient.Tests", "src\NHL\StatsBot.NHL.ApiClient.Tests\StatsBot.NHL.ApiClient.Tests.csproj", "{842FFE44-6FFA-4663-8FA2-65BC1D1FA696}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{134285E5-095F-4DCE-B762-5C9D2808D2B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{134285E5-095F-4DCE-B762-5C9D2808D2B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{134285E5-095F-4DCE-B762-5C9D2808D2B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B25F7CA-4F68-4B6C-AE9F-D3DD7E1EA304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B25F7CA-4F68-4B6C-AE9F-D3DD7E1EA304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B25F7CA-4F68-4B6C-AE9F-D3DD7E1EA304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B25F7CA-4F68-4B6C-AE9F-D3DD7E1EA304}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842FFE44-6FFA-4663-8FA2-65BC1D1FA696}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842FFE44-6FFA-4663-8FA2-65BC1D1FA696}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842FFE44-6FFA-4663-8FA2-65BC1D1FA696}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842FFE44-6FFA-4663-8FA2-65BC1D1FA696}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92DBD0F8-8000-45F5-BCF5-27C42046C2C3} = {91E5E018-F704-426B-833E-19E5C9DA11BE}
@@ -61,5 +71,7 @@ Global
 		{43EA393D-02B5-4C08-A802-63DBFC65CC7E} = {91E5E018-F704-426B-833E-19E5C9DA11BE}
 		{74A74F79-5814-4289-8389-1D4D2A4C7458} = {43EA393D-02B5-4C08-A802-63DBFC65CC7E}
 		{134285E5-095F-4DCE-B762-5C9D2808D2B1} = {DE0BF3B7-2E60-4783-929D-537C88CE92C7}
+		{7B25F7CA-4F68-4B6C-AE9F-D3DD7E1EA304} = {DE0BF3B7-2E60-4783-929D-537C88CE92C7}
+		{842FFE44-6FFA-4663-8FA2-65BC1D1FA696} = {DE0BF3B7-2E60-4783-929D-537C88CE92C7}
 	EndGlobalSection
 EndGlobal
