@@ -1,3 +1,6 @@
 # Build results
 [Bb]in/
 [Oo]bj/
+
+# Mac files
+.DS_Store
