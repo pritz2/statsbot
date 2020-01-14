@@ -3,8 +3,10 @@ using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using StatsBot.Metadata;
+using StatsBot.NHL.Events.Sources;
+using StatsBot.NHL.Events.Statistics;
+using StatsBot.NHL.Events.Times;
 
 namespace StatsBot.Console.Entrypoint
 {
@@ -22,7 +24,11 @@ namespace StatsBot.Console.Entrypoint
             while (!stoppingToken.IsCancellationRequested)
             {
                 System.Console.ReadLine();
-                this.eventStore.Add(new Event(new Statistic()));
+                this.eventStore.Add(
+                    new Event(
+                        new Goal(),
+                        new PlayerScope("Patrick Kane", "Blackhawks"),
+                        new PeriodScope(2, 10, 2020)));
             }
 
             return Task.CompletedTask;

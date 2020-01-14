@@ -12,5 +12,6 @@
     <ProjectReference Include="..\..\StatsBot.CoreInterfaces\StatsBot.CoreInterfaces.csproj" />
     <ProjectReference Include="..\..\StatsBot.EventListener\StatsBot.EventListener.csproj" />
     <ProjectReference Include="..\..\StatsBot.Metadata\StatsBot.Metadata.csproj" />
+    <ProjectReference Include="..\..\NHL\StatsBot.NHL.Events\StatsBot.NHL.Events.csproj" />
   </ItemGroup>
 </Project>

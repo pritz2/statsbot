@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using StatsBot.CoreInterfaces;
+using StatsBot.Metadata;
 
 namespace StatsBot.EventListener
 {
@@ -26,10 +27,55 @@ namespace StatsBot.EventListener
             while (!stoppingToken.IsCancellationRequested)
             {
                 this.logger.LogInformation($"{nameof(EventListenerService)} running at: {DateTimeOffset.Now}");
-                var events = this.eventProvider.GetEvents();
-                this.logger.LogInformation($"Got {events.Count()} events");
+                var newEvents = this.eventProvider.GetEvents();
+                this.logger.LogInformation($"Got {newEvents.Count()} events");
+                foreach (var newEvent in newEvents)
+                {
+                    this.logger.LogInformation($"Got event [{newEvent}]");
+                    var affectedMetrics = this.GetAffectedMetrics(newEvent);
+                    this.logger.LogInformation($"Got {affectedMetrics.Count()} related metrics for this event");
+                    foreach (var affectedMetric in affectedMetrics)
+                    {
+                        this.logger.LogInformation($"Got affected metric [{affectedMetric}]");
+                    }
+                }
+
                 await Task.Delay(1000, stoppingToken);
             }
+        }
+
+        private IEnumerable<Metric> GetAffectedMetrics(Event newEvent)
+        {
+            var baseMetric = new Metric(newEvent.Statistic, newEvent.SourceScope, newEvent.TimeScope);
+            var sourceExtendedMetrics = new List<Metric> { baseMetric };
+            var currentMetric = baseMetric;
+            while (currentMetric.SourceScope.CanExtendScope())
+            {
+                var sourceExtendedMetric = new Metric(
+                    currentMetric.Statistic,
+                    currentMetric.SourceScope.GetExtendedScope(),
+                    currentMetric.TimeScope);
+                sourceExtendedMetrics.Add(sourceExtendedMetric);
+                currentMetric = sourceExtendedMetric;
+            }
+
+            var affectedMetrics = new List<Metric>();
+            foreach (var sourceExtendedMetric in sourceExtendedMetrics)
+            {
+                affectedMetrics.Add(sourceExtendedMetric);
+                currentMetric = sourceExtendedMetric;
+                while (currentMetric.TimeScope.CanExtendScope())
+                {
+                    var timeExtendedMetric = new Metric(
+                        currentMetric.Statistic,
+                        currentMetric.SourceScope,
+                        currentMetric.TimeScope.GetExtendedScope());
+                    affectedMetrics.Add(timeExtendedMetric);
+                    currentMetric = timeExtendedMetric;
+                }
+            }
+
+            return affectedMetrics;
         }
     }
 }
