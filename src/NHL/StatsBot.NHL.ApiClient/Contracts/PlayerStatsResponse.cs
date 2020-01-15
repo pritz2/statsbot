@@ -13,15 +13,6 @@ namespace StatsBot.NHL.ApiClient.Contracts
     public class SplitsResponses
     {
         [JsonProperty("splits")]
-        public IEnumerable<SplitsResponse> SplitsResponseArray;
-    }
-
-    public class SplitsResponse
-    {
-        [JsonProperty("season")]
-        public string SeasonString;
-
-        [JsonProperty("stat")]
-        public PlayerStats PlayerStats;
+        public IEnumerable<Split> Splits;
     }
 }

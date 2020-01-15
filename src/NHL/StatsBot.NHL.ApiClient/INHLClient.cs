@@ -1,10 +1,13 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using StatsBot.NHL.ApiClient.Contracts;
 
 namespace StatsBot.NHL.ApiClient
 {
     public interface INHLClient
     {
-        public Task<PlayerStats> GetStatsAsync(int playerId, string season);
+        Task<PlayerStats> GetSeasonStatsAsync(int playerId, string season);
+
+        Task<IEnumerable<Split>> GetAllGameStatsAsync(int playerId, string season);
     }
 }
